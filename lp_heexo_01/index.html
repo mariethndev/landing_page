@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>heexo</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 </head>
 <body>
 
@@ -37,10 +38,9 @@
     </div>
 
     <section class="flex">
-        <img src="bg.png" alt="">
+        <img src="bg.png" alt="image de background de la section">
     </section>
         
-
     <div class="stack">
         <img src="cube-icon.png" alt="cube icon">
         <div class="use">
@@ -54,6 +54,39 @@
             <p>Database supports PII data encrypted</p>
         </div>
     </div>
+
+    <script>
+    const tl = gsap.timeline({ defaults: { duration: 1.2, ease: "power3.out" } });
+
+    tl.from(".title-data", { x: -120, opacity: 0 })
+        .from(".trial-data", { x: 120, opacity: 0 }, "-=0.6");
+
+    gsap.from(".stack img", {
+            y: 60,
+            opacity: 0,
+            scale: 0.92,
+            duration: 0.9,
+            ease: "power3.out",
+            stagger: 0.15
+    });
+
+        gsap.from(".flex img", {
+            opacity: 0,
+            y: 60,
+            scale: 0.92,
+            duration: 1.4,
+            ease: "power3.out"
+    });
+
+    gsap.from([".use", ".privacy"], {
+        y: 60,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.15,
+        delay: 0.1
+    });
+    </script>
 
 </body>
 </html>
